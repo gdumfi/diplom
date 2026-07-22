@@ -1,0 +1,6 @@
+# seed.txt — свежие цели для хант-цикла (одна на строку): 0xADDRESS[,chainId]
+# chainId по умолчанию 1 (mainnet). Для L2/L3 без Etherscan — цикл сам пробует Sourcify;
+# для кастомного Blockscout задай env SCSA_EXPLORER_URL перед запуском /loop.
+# Комментарии — через #. Примеры (закомментированы):
+#   0x000000000022D473030F116dDEE9F6B43aC78BA3,1   # Permit2 (демо, чистый)
+#   0xADDRESS,8453                                  # цель на Base

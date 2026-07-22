@@ -1,0 +1,15 @@
+{
+  "mcpServers": {
+    "shadcn": {
+      "command": "npx",
+      "args": ["shadcn@latest", "mcp"]
+    },
+    "scsa": {
+      "command": "python3",
+      "args": ["/home/akum1/diplom/mcp/scsa_mcp.py"],
+      "env": {
+        "SCA_BIN": "/home/akum1/diplom/solidity-llvm/build/src/solidity-llvm"
+      }
+    }
+  }
+}

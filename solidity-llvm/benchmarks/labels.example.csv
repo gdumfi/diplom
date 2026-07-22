@@ -1,0 +1,15 @@
+# пример файла меток для run_benchmark.sh
+# формат: filename,expected_vulnerable
+#   filename            — имя .sol файла (basename; сопоставляется внутри папки корпуса)
+#   expected_vulnerable — 1 если файл содержит reentrancy, 0 если безопасен
+#
+# строки на '#' и пустые игнорируются; строка-заголовок filename,... тоже пропускается.
+# метка ставится вручную по разметке корпуса (для SmartBugs-curated все файлы
+# в папке reentrancy уязвимы -> 1; безопасные примеры добавь сам и помечай 0).
+filename,expected_vulnerable
+simple_dao.sol,1
+reentrance.sol,1
+etherstore.sol,1
+modifier_reentrancy.sol,1
+safe_withdraw_cei.sol,0
+plain_counter.sol,0

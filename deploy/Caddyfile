@@ -1,0 +1,11 @@
+# Caddy: авто-HTTPS по домену + закрытый доступ (basic-auth) + проксирование в бэкенд.
+# Значения DOMAIN / BASIC_AUTH_USER / BASIC_AUTH_HASH берутся из .env (env_file).
+{$DOMAIN} {
+	# закрытый доступ: пускаем только по логину/паролю (хэш — bcrypt).
+	# директива для Caddy ≥ 2.8; для старых версий замените на `basicauth`.
+	basic_auth {
+		{$BASIC_AUTH_USER} {$BASIC_AUTH_HASH}
+	}
+	# бэкенд раздаёт и статику, и /api — с одного порта, поэтому CORS не нужен
+	reverse_proxy backend:8080
+}

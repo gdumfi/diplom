@@ -1,0 +1,10 @@
+  обработано 25, докачано deps 6
+  обработано 50, докачано deps 21
+  обработано 75, докачано deps 40
+  обработано 100, докачано deps 55
+  обработано 125, докачано deps 57
+  обработано 150, докачано deps 57
+  обработано 175, докачано deps 57
+deps: докачано 57 файлов зависимостей → /home/akum1/diplom/hunt/repos/Tare/tare-io__tare-contracts/lib
+remappings/foundry.toml сохранены. Дальше: ./hunt_batch.sh --dir /home/akum1/diplom/hunt/repos/Tare
+DEPS_EXIT=0

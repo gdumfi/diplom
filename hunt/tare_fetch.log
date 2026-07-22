@@ -1,0 +1,10 @@
+репо sherlock-audit/2026-07-tare @ main
+  .sol в репо: 122, качаем: 122 (in-scope помечены отдельно)
+  retry 1/3 https://raw.githubusercontent.com/sherlock-audit/2026-07-tare/main/tare-io__tare-contracts/contracts/interfaces/IVaultShareToken.sol: <urlopen error timed out>
+  retry 1/3 https://raw.githubusercontent.com/sherlock-audit/2026-07-tare/main/tare-io__tare-contracts/contracts/misc/interfaces/IERC7575.sol: <urlopen error timed out>
+  retry 1/3 https://raw.githubusercontent.com/sherlock-audit/2026-07-tare/main/tare-io__tare-contracts/test/Loans/unit/Loans_LoanTerms.t.sol: <urlopen error timed out>
+  retry 1/3 https://raw.githubusercontent.com/sherlock-audit/2026-07-tare/main/tare-io__tare-contracts/test/LoansNFT/unit/LoansNFT_OwnershipNonce.t.sol: <urlopen error [Errno -3] Temporary failure in name resolution>
+скачано 122 .sol → /home/akum1/diplom/hunt/repos/Tare
+дальше: ./hunt_batch.sh --dir /home/akum1/diplom/hunt/repos/Tare
+in-scope пути: /home/akum1/diplom/hunt/repos/Tare/_scope.txt (сверяйся при триаже)
+FETCH_EXIT=0

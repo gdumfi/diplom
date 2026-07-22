@@ -1,0 +1,9 @@
+build/
+build-*/
+.cache/
+compile_commands.json
+*.ll
+*.bc
+*.o
+.vscode/
+Testing/

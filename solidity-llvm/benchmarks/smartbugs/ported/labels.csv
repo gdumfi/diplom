@@ -1,0 +1,8 @@
+filename,expected_vulnerable
+simple_dao.sol,1
+etherstore.sol,1
+reentrance.sol,1
+reentrancy_dao.sol,1
+safe_etherstore_cei.sol,0
+safe_simpledao_guarded.sol,0
+safe_reentrance_cei.sol,0

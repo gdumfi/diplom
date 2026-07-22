@@ -1,0 +1,24 @@
+# Вариант для homeserver: ТОЛЬКО backend (свой Caddy НЕ поднимаем — наружу
+# проксирует уже работающий host-Caddy как поддомен). Контейнер слушает только
+# на 127.0.0.1 — снаружи недоступен напрямую, только через Caddy (там и гейт).
+services:
+  backend:
+    build:
+      context: ..
+      dockerfile: deploy/Dockerfile
+    env_file: stack.env          # ETHERSCAN_API_KEY (+ ALCHEMY_KEY при желании)
+    environment:
+      - SCA_BIN=/usr/local/bin/solidity-llvm
+      - WEB_DIST=/app/dist
+      - PORT=8080
+      - SCAN_TIMEOUT=240s
+    volumes:
+      - /var/run/docker.sock:/var/run/docker.sock   # solc-контейнеры на демоне хоста
+    ports:
+      - "127.0.0.1:8090:8080"    # ТОЛЬКО локально; публичный доступ — через host-Caddy
+    restart: unless-stopped
+    deploy:
+      resources:
+        limits:
+          cpus: "3.0"
+          memory: 3g

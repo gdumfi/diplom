@@ -1,0 +1,15 @@
+# контекст сборки = корень репо; выкидываем тяжёлое и ненужное для образа
+**/node_modules/
+solidity-llvm/build/
+web/dist/
+old/
+notes/
+.git/
+**/*.o
+**/*.ll
+**/.cache/
+**/.DS_Store
+*.log
+deploy/stack.env
+deploy/.env
+

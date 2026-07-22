@@ -1,0 +1,12 @@
+{
+  "language": "Solidity",
+  "sources": { "Vault08.sol": { "urls": ["/src/Vault08.sol"] } },
+  "settings": {
+    "outputSelection": {
+      "*": {
+        "*": ["storageLayout", "evm.deployedBytecode"],
+        "": ["ast"]
+      }
+    }
+  }
+}

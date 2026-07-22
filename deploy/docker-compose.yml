@@ -1,0 +1,43 @@
+# Витрина SCSA — два сервиса: бэкенд (API+фронт) и Caddy (HTTPS + закрытый доступ).
+# Запуск на VPS:  cp .env.example .env && <заполнить> && docker compose up -d --build
+services:
+  backend:
+    build:
+      context: ..            # корень репо (собирает sca + фронт + бэкенд)
+      dockerfile: deploy/Dockerfile
+    env_file: stack.env      # ETHERSCAN_API_KEY / ALCHEMY_KEY пробрасываются в бинарь
+    environment:
+      - SCA_BIN=/usr/local/bin/solidity-llvm
+      - WEB_DIST=/app/dist
+      - PORT=8080
+      - SCAN_TIMEOUT=240s
+    volumes:
+      # docker-out-of-docker: бинарь запускает solc-контейнеры на демоне ХОСТА.
+      # ⚠️ доступ к сокету = root-эквивалент на хосте — потому доступ и закрыт (Caddy basic-auth)
+      - /var/run/docker.sock:/var/run/docker.sock
+    expose:
+      - "8080"               # наружу НЕ публикуем — только через Caddy
+    restart: unless-stopped
+    deploy:
+      resources:
+        limits:
+          cpus: "2.0"
+          memory: 2g
+
+  caddy:
+    image: caddy:2
+    ports:
+      - "80:80"
+      - "443:443"
+    env_file: stack.env      # DOMAIN / BASIC_AUTH_USER / BASIC_AUTH_HASH
+    volumes:
+      - ./Caddyfile:/etc/caddy/Caddyfile:ro
+      - caddy_data:/data
+      - caddy_config:/config
+    depends_on:
+      - backend
+    restart: unless-stopped
+
+volumes:
+  caddy_data:
+  caddy_config:

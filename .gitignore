@@ -1,0 +1,42 @@
+# === СЕКРЕТЫ (никогда не коммитить!) ===
+# phase0/env.sh содержит реальный ETHERSCAN_API_KEY
+phase0/env.sh
+# deploy/stack.env — реальные ключи (шаблон stack.env.example коммитим)
+deploy/stack.env
+.env
+*.key
+*.pem
+secrets.*
+
+# === зависимости (восстанавливаются: npm install / forge install) ===
+node_modules/
+**/lib/forge-std/
+**/lib/openzeppelin-contracts/
+**/lib/solmate/
+
+# === build-артефакты C++/CMake ===
+solidity-llvm/build/
+*.o
+*.a
+*.bc
+*.ll
+
+# === foundry-выхлоп ===
+**/out/
+**/cache/
+**/forge_poc/lib/
+
+# === python ===
+__pycache__/
+*.pyc
+.venv/
+venv/
+
+# === прочее ===
+scratchpad/
+*.Zone.Identifier
+*.bundle
+.DS_Store
+
+# скомпилированный TUI-бинарь (регенерируется из tui/)
+tui/scsa-tui

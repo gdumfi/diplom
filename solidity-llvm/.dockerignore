@@ -1,0 +1,12 @@
+.git/
+.gitignore
+.vscode/
+.cache/
+build/
+build-*/
+*.ll
+*.bc
+*.o
+output.ll
+compile_commands.json
+Testing/
